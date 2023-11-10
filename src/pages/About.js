@@ -9,6 +9,8 @@ export default function About() {
         <h2>You will recieve emails when the price of your monitored apartments change</h2>
         <h2>There are a couple apartment complexes missing but they will be added</h2>
         <h3>Email me at nrubin1@umd.edu if you need any help :)</h3>
+        <h3>This is an open source project https://github.com/glancing/umd-apartments</h3>
+        <h4>Please consider contributing</h4>
       </div>
     </div>
   );
