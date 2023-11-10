@@ -17,7 +17,7 @@ export default function Signup() {
     if (!(isValidEmail(email))) return toast.error('Invalid email');
     if (password.length < 4) return toast.error('Password must be at least 4 characters');
 
-    axios.post('/signup', {
+    axios.post('https://umd-apartments-api.vercel.app/signup', {
       email,
       password
     })

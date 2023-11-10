@@ -29,7 +29,7 @@ export default function ApartmentDetails() {
 
   useEffect(() => {
     // Fetch apartment details
-    axios.get(`/apartments/${id}`).then((res) => {
+    axios.get(`https://umd-apartments-api.vercel.app/apartments/${id}`).then((res) => {
       console.log(res.data);
       setApartment(res.data);
     });
@@ -51,7 +51,7 @@ export default function ApartmentDetails() {
     if (!token) {
       toast.error('You must be logged in to add to watchlist');
     } else {
-      axios.post(`/watchlist/${id}`, null, {
+      axios.post(`https://umd-apartments-api.vercel.app/watchlist/${id}`, null, {
         headers: {
           Authorization: token
         }

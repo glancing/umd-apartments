@@ -2,7 +2,6 @@
   "name": "umd-apts",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://umd-apartments-api.vercel.app",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.17.0",

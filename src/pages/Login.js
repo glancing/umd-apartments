@@ -8,7 +8,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    axios.post('/login', {
+    axios.post('https://umd-apartments-api.vercel.app/login', {
       email,
       password
     })

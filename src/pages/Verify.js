@@ -8,7 +8,7 @@ export default function Verify() {
   const [verificationCode, setVerificationCode] = useState('');
 
   const handleVerify = () => {
-    axios.post('/verify', { verificationCode }, 
+    axios.post('https://umd-apartments-api.vercel.app/verify', { verificationCode }, 
       { headers: { Authorization: Cookies.get('token') } }
     )
       .then((res) => {

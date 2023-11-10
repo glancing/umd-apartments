@@ -15,7 +15,7 @@ export default function Apartments() {
   });
 
   useEffect(() => {
-    axios.get("/apartments", {
+    axios.get("https://umd-apartments-api.vercel.app/apartments", {
       params: {
         price: 'none',
         roomType: 'none',
@@ -26,7 +26,7 @@ export default function Apartments() {
   }, []);
 
   const onSubmitFilters = (e) => {
-    axios.get("/apartments", {
+    axios.get("https://umd-apartments-api.vercel.app/apartments", {
       params: {
         price: filterData.price,
         roomType: filterData.roomType,
@@ -51,7 +51,7 @@ export default function Apartments() {
       });
       setApartments(filteredApartments);
     } else {
-      axios.get("/apartments", {
+      axios.get("https://umd-apartments-api.vercel.app/apartments", {
         params: {
           price: filterData.price,
           roomType: filterData.roomType,

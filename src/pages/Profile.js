@@ -12,7 +12,7 @@ export default function Profile() {
     if (!token) {
       toast.error('You must be logged in to view profile');
     } else {
-      axios.get('/profile', {
+      axios.get('https://umd-apartments-api.vercel.app/profile', {
         headers: {
           Authorization: token
         }
@@ -43,7 +43,7 @@ export default function Profile() {
     if (!token) {
       toast.error('You must be logged in to remove from watchlist');
     } else {
-      axios.delete(`/watchlist/${id}`, {
+      axios.delete(`https://umd-apartments-api.vercel.app/watchlist/${id}`, {
         headers: {
           Authorization: token
         }
