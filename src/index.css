@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -98,6 +97,13 @@ code {
   fill: #ff9900; /* Change the color to indicate favorited */
 }
 
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
 /* FilterForm styling */
 .filter-form {
   background-color: #f5f5f5;
@@ -179,6 +185,13 @@ input[type="text"] {
 .apartment-details-page {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.apartment-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .info {
@@ -209,6 +222,7 @@ input[type="text"] {
 @media (max-width: 768px) {
   .apartment-details-page {
     flex-direction: column;
+    width: 100%;
   }
 
   .info,
@@ -509,4 +523,134 @@ input[type="text"] {
 
 .verify-box button:hover {
   background-color: #0056b3;
+}
+
+.review-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px; /* Set your desired maximum width */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.review {
+  border: 1px solid #ddd; /* Add a border for separation */
+  margin-bottom: 20px; /* Add some margin between reviews */
+  padding: 15px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.review-stars {
+  color: #f39c12; /* Set star color */
+}
+
+.review-date {
+  font-size: 14px;
+  color: #888;
+}
+
+.review-message {
+  word-wrap: break-word; 
+}
+
+.write-review-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Add some space between reviews and the button */
+}
+
+.write-review-button:hover {
+  background-color: #2980b9;
+}
+
+.review-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  height: 60%;
+  overflow-y: auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Add media query for better responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.review-modal .review-stars .star {
+  font-size: 24px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: grey;
+}
+
+.review-modal .review-stars .selected {
+  color: #f39c12; /* Set selected star color */
+}
+
+.inner-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.review-modal-message {
+  width: 50%;
+  height: 50%;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  resize: none; /* Disable textarea resizing */
+  margin-bottom: 10px;
 }

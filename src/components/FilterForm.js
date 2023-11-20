@@ -1,34 +1,31 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { clearFavorites } from '../reducers/favoritesSlice';
+import { setFilter, clearFilter } from '../reducers/filterSlice';
 
-const FilterForm = ({ extraFilter, setExtraFilter, submitShowFavorites, filterData, setFilterData, onSubmitFilters }) => {
+const FilterForm = () => {
   const dispatch = useDispatch();
 
+  const filterData = useSelector((state) => state.filterSlice);
   const favoritedApartments = useSelector((state) => state.favorites);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFilterData({ ...filterData, [name]: value });
+    dispatch(setFilter({ ...filterData, [name]: value }));
   };
 
   const clearFilters = (e) => {
     e.preventDefault();
-    setFilterData({
-      price: 'none',
-      roomType: 'none',
-    });
+    dispatch(clearFilter());
   };
 
   const handleShowFavorites = (e) => {
-    submitShowFavorites(e);
-    setExtraFilter({ ...extraFilter, showFavorites: e.target.checked });
+    dispatch(setFilter({ ...filterData, showFavorites: e.target.checked }));
   }
 
   const onRemoveAllFavorites = (e) => {
     e.preventDefault();
     dispatch(clearFavorites());
-    submitShowFavorites({ target: { checked: false } })
-    setExtraFilter({ ...extraFilter, showFavorites: false });
+    dispatch(setFilter({ ...filterData, showFavorites: false }));
   }
 
   return (
@@ -66,13 +63,27 @@ const FilterForm = ({ extraFilter, setExtraFilter, submitShowFavorites, filterDa
                 <option value="3bed-2bath">3 Bed / 2 Bath</option>
                 <option value="3bed-3bath">3 Bed / 3 Bath</option>
                 <option value="4bed-2bath">4 Bed / 2 Bath</option>
+                <option value="4bed-3bath">4 Bed / 3 Bath</option>
                 <option value="4bed-4bath">4 Bed / 4 Bath</option>
+              </select>
+            </label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="rating">Rating:
+              <select
+                id="rating"
+                name="rating"
+                value={filterData.rating}
+                onChange={handleInputChange}
+              >
+                <option value="none">None</option>
+                <option value="asc">Lowest</option>
+                <option value="desc">Highest</option>
               </select>
             </label>
           </div>
         </form>
         <div className='filter-form-buttons'>
-          <button onClick={onSubmitFilters}>Apply Filters</button>
           <button onClick={clearFilters}>Clear Filters</button>
           <button onClick={onRemoveAllFavorites}>Remove All Favorites</button>
           <label htmlFor="favorited">Show Favorites ({favoritedApartments.length})
@@ -80,7 +91,7 @@ const FilterForm = ({ extraFilter, setExtraFilter, submitShowFavorites, filterDa
               id="favorited"
               type="checkbox"
               name="favorited"
-              checked={extraFilter.showFavorites}
+              checked={filterData.showFavorites}
               onChange={handleShowFavorites}
             />
           </label>
