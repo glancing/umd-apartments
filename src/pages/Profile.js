@@ -121,6 +121,7 @@ export default function Profile() {
           {reviews.map((review) => (
             <li key={review._id} className="apartment-item">
               <div className="watchlist-item">
+                <h2>{review.apartment}</h2>
                 <p>{review.name}</p>
                 <p>{review.bedbath}</p>
                 <p>Review: {review.review}</p>
