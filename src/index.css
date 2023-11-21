@@ -259,6 +259,17 @@ input[type="text"] {
   background-color: #0056b3;
 }
 
+@media (max-width: 600px) {
+  .details-btn-container {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center; /* Center buttons horizontally on smaller screens */
+  }
+
+  .details-btn {
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 14px;   /* Adjust font size for smaller screens */
+  }
+}
 
 .login-container {
   display: flex;

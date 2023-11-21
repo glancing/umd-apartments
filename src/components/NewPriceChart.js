@@ -1,4 +1,4 @@
-import { LineChart, CartesianGrid, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
+import { LineChart, CartesianGrid, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function NewPriceChart({ data, roomtype_to_rent }) {
     // Example data for three stocks over time
@@ -27,7 +27,8 @@ export default function NewPriceChart({ data, roomtype_to_rent }) {
     ];
 
     return (
-        <LineChart width={400} height={300} data={data}>
+      <ResponsiveContainer width="90%" height={300}>
+        <LineChart data={data}>
           <XAxis dataKey="date" />
           <YAxis domain={[minY - 10, maxY + 10]} />
           <CartesianGrid strokeDasharray="3 3" />
@@ -37,5 +38,6 @@ export default function NewPriceChart({ data, roomtype_to_rent }) {
             <Line key={index} type="monotone" dataKey={roomtype} stroke={lineColors[index]} />
           ))}
         </LineChart>
+      </ResponsiveContainer>
     );
   }
